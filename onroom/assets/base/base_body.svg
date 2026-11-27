@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="620" viewBox="0 0 360 620"><defs>
+ <linearGradient id="skin" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#FFF0E4"/><stop offset="1" stop-color="#F5BFB6"/></linearGradient>
+ <linearGradient id="cloth" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFF8E5"/><stop offset="1" stop-color="#E6D4D1"/></linearGradient>
+ </defs>
+ <!-- legs, natural forward facing posture -->
+ <path d="M151 375 Q149 406 147 450 L145 527 Q145 545 155 550 L169 550 Q179 547 179 537 L180 404 Z" fill="url(#skin)" stroke="#A77A7E" stroke-width="2.7"/>
+ <path d="M181 403 L184 535 Q184 548 194 551 L207 551 Q216 547 216 535 L212 446 Q214 400 208 373Z" fill="url(#skin)" stroke="#A77A7E" stroke-width="2.7"/>
+ <!-- socks --> <path d="M146 502 L178 501 L178 545 L147 545Z M184 502 L215 502 L216 543 L184 544Z" fill="#FAF7F4" stroke="#DCC6C1" stroke-width="1.8"/>
+ <path d="M146 511 L178 510 M184 511 L216 510" fill="none" stroke="#D8B9BD" stroke-width="3"/>
+ <!-- shoes --> <path d="M145 536 Q133 551 134 562 Q143 571 171 566 Q181 562 179 550 L175 539Z M185 541 Q181 552 184 562 Q194 570 225 566 Q228 550 214 537Z" fill="#7A5567" stroke="#5E4659" stroke-width="3"/>
+ <path d="M139 559 Q154 563 176 558 M186 559 Q203 563 222 559" stroke="#F6DEDC" stroke-width="3" fill="none"/>
+ <!-- neck --> <path d="M165 165 L165 196 Q180 205 195 196 L195 164" fill="url(#skin)" stroke="#A77A7E" stroke-width="2.5"/>
+ <!-- arms left/right visible beside any overlay -->
+ <path d="M145 208 Q129 211 126 238 L111 339 Q107 358 107 371 Q110 385 116 383 L125 368 L139 265 L153 236Z" fill="url(#skin)" stroke="#A77A7E" stroke-width="2.7"/>
+ <path d="M216 208 Q230 212 235 237 L249 340 Q253 358 253 371 Q249 385 243 383 L235 367 L220 265 L208 237Z" fill="url(#skin)" stroke="#A77A7E" stroke-width="2.7"/>
+ <path d="M110 368 Q109 379 104 383 M248 368 Q250 377 256 382" stroke="#C99593" stroke-width="2" fill="none"/>
+ <!-- torso and bare base camisole -->
+ <path d="M150 206 Q160 199 164 198 L180 209 L196 198 Q205 199 213 205 Q218 247 215 294 L144 294 Q143 252 150 206Z" fill="url(#skin)" stroke="#A77A7E" stroke-width="2.8"/>
+ <path d="M150 206 L154 228 Q165 232 180 235 Q197 232 209 228 L213 206" fill="none" stroke="#D2A49F" stroke-width="2"/>
+ <path d="M155 211 L155 204 L163 204 L164 213 Q179 220 195 212 L196 202 L204 204 L205 213 L210 297 L149 297Z" fill="url(#cloth)" stroke="#B999A7" stroke-width="2.3"/>
+ <path d="M162 214 Q181 228 199 214" fill="none" stroke="#D5B0B5" stroke-width="2"/>
+ <!-- shorts --> <path d="M149 292 Q179 302 211 292 L219 380 L183 383 L179 347 L175 382 L140 380Z" fill="#F2D8D5" stroke="#B999A7" stroke-width="2.5"/>
+ <path d="M179 302 L179 356 M145 305 Q179 311 213 304" stroke="#C6A3AB" fill="none" stroke-width="2"/>
+ <!-- head big anime proportions, bald -->
+ <path d="M180 65 C117 65 107 108 115 149 Q119 174 139 193 Q157 208 180 209 Q203 208 221 193 Q241 172 245 147 Q252 105 221 80 Q205 65 180 65Z" fill="url(#skin)" stroke="#9A6C75" stroke-width="3"/>
+ <path d="M117 139 Q105 131 108 151 Q112 169 123 164 M243 139 Q254 133 252 151 Q248 167 238 164" fill="url(#skin)" stroke="#A67E81" stroke-width="2.2"/>
+ <path d="M139 188 Q180 219 221 186" fill="none" stroke="#FFEFE2" stroke-width="2" opacity=".65"/>
+</svg>

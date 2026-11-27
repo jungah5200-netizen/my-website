@@ -1,0 +1,35 @@
+:root{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:#3d2d2b;background:#eae5df;font-synthesis:none}*{box-sizing:border-box}body{margin:0}.phone{width:min(100%,440px);margin:14px auto 28px;border-radius:28px;background:#fff8f3;overflow:hidden;box-shadow:0 15px 55px #4b343320}header{text-align:center;padding:17px 10px 13px}.brand{font-size:23px;font-weight:900;letter-spacing:-1px}.bulb{color:#f5a025;font-size:18px}h1{font-size:27px;margin:1px 0 4px;letter-spacing:-1px}header p{font-size:12px;margin:0;color:#806c65}.scene{height:335px;position:relative;overflow:hidden;background:#e5d7e4}.room{width:100%;height:100%;object-fit:cover}.warm-overlay{position:absolute;inset:0;background:linear-gradient(0deg,#f9e7eb40,transparent 60%);pointer-events:none}.avatar{position:absolute;height:330px;width:192px;left:50%;bottom:-6px;transform:translateX(-50%);filter:drop-shadow(0 5px 6px #54415555)}.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}.mood{position:absolute;right:12px;top:14px;width:61px;height:61px;object-fit:contain;filter:drop-shadow(0 3px 5px #865f6b55)}.scene-sign{position:absolute;right:13px;bottom:11px;font-size:9px;color:#fff;letter-spacing:2px;text-shadow:0 1px 3px #644}.tabs{display:grid;grid-template-columns:repeat(5,1fr);padding:8px 7px;gap:5px;border-bottom:1px solid #f1e6de}.tabs button{display:flex;flex-direction:column;align-items:center;justify-content:center;border:0;background:#ffefe6;border-radius:15px;padding:9px 0;color:#50362e;font-size:23px;cursor:pointer}.tabs button.active{background:linear-gradient(145deg,#ffb83f,#ff8915);color:white;box-shadow:0 3px 0 #e56d0f}.tabs small{font-size:12px;font-weight:800;margin-top:2px}.selection{padding:13px 11px 12px;background:#fffaf6}.selection-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}.selection-heading h2{font-size:17px;margin:0}.selection-heading span{font-size:12px;color:#876d5f}.choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 7px}.option{padding:5px 3px 8px;border:2px solid transparent;border-radius:13px;background:#f9ede4;cursor:pointer;min-width:0;position:relative}.option.selected{border-color:#ff8a16;background:#fff1e1}.option.selected:after{content:'✓';position:absolute;right:2px;top:2px;width:19px;height:19px;display:grid;place-items:center;border-radius:50%;background:#ff8a16;color:#fff;font-size:13px;font-weight:bold}.thumb{height:95px;border-radius:8px;overflow:hidden;position:relative;background:radial-gradient(circle at 50% 35%,#fffaf3,#f2dfdb);display:flex;align-items:center;justify-content:center}.thumb img{position:absolute;height:178px;width:102px;left:50%;top:-7px;transform:translateX(-50%)}.option[data-kind='face'] .thumb img{height:230px;width:135px;top:-22px}.option[data-kind='outfit'] .thumb img{height:178px;width:102px;top:-8px}.option[data-kind='background'] .thumb img{height:100%;width:100%;top:0;left:0;transform:none;object-fit:cover}.option[data-kind='mood'] .thumb img{height:78px;width:78px;top:8px}.option span{font-size:10.5px;display:block;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold}.hint{text-align:center;font-size:11px;color:#aa9284;margin-top:12px}.actions{padding:13px 27px 20px;display:grid;gap:6px}.save{border:0;border-radius:18px;padding:14px;background:linear-gradient(#ffb840,#ff870a);color:#fff;font-size:22px;font-weight:900;box-shadow:0 4px 0 #db6d12;cursor:pointer}.reset,.remove{background:transparent;border:0;text-decoration:underline;color:#8e7f75;cursor:pointer;font-size:11px;padding:6px}#toast{text-align:center;font-size:12px;color:#6b655e;min-height:5px}@media(max-width:490px){.phone{margin:0 auto;border-radius:0}.scene{height:320px}}@media(max-width:340px){.thumb{height:80px}.option span{font-size:9px}}
+
+/* 사이ON M2 앱 공통 화면 연계 */
+:root{background:#eae5df;color:#352219}
+.phone{max-width:390px;min-height:100dvh;margin:0 auto;background:#fff9f5;box-shadow:0 8px 36px #6e55332b;border-radius:0}
+.m2-toolbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #efdfd1;background:#fff9f5}
+.m2-back,.m2-return{color:#6c4835;text-decoration:none;font-weight:750;font-size:13px}
+.m2-logo{color:#3b251c;font-weight:900;font-size:19px;letter-spacing:-1px}
+.m2-logo span{color:#f2a11e;text-shadow:0 0 8px #f4c45c}
+header{padding-top:12px}
+header h1{font-size:23px;margin:4px 0}
+header p{font-size:11px}
+.scene{height:305px}
+.avatar{height:300px;width:175px;bottom:-5px}
+.tabs{gap:4px}.tabs button{padding:7px 0;border-radius:11px;font-size:20px}.tabs small{font-size:11px}
+.choices{gap:7px 5px}.thumb{height:87px}.actions{padding:12px 21px 20px}.save{font-size:17px;border-radius:12px;padding:13px}
+.m2-return{text-align:center;display:block;border:1px solid #dfc7b6;border-radius:12px;padding:11px;background:#fff8f4}
+@media(min-width:500px){.phone{margin:18px auto;border-radius:22px;min-height:760px}}
+@media(max-width:390px){.scene{height:290px}.avatar{height:287px;width:168px}}
+
+
+/* M34 · 온룸 전용 화면도 메인 앱처럼 9:16, 본문만 스크롤, 84px 하단 네비 고정 */
+html,body{width:100%;height:100%;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center;background:#eae5df}
+.phone{display:flex;flex-direction:column;width:min(100vw,430px,calc(100dvh * 9 / 16));max-width:430px;height:auto;max-height:100dvh;aspect-ratio:9/16;min-height:0;margin:0 auto!important;border-radius:0!important;overflow:hidden;position:relative;background:#FAF9F6}
+.onroom-scroller{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;padding-bottom:16px}
+.onroom-bottom-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;align-items:center;flex:0 0 84px;height:84px;min-height:84px;padding:6px 8px max(10px,env(safe-area-inset-bottom));border-top:1px solid #efe5dc;background:#fff9f5;z-index:10}
+.onroom-bottom-nav a{display:flex;align-items:center;justify-content:center;height:66px;min-width:0;border-radius:14px;text-decoration:none}
+.onroom-bottom-nav a.active{background:#fff0d9}
+.onroom-bottom-nav img{display:block;width:min(100%,84px);height:62px;object-fit:contain}
+.onroom-bottom-nav a:focus-visible{outline:2px solid #d88c1a;outline-offset:-2px}
+@media(min-width:500px){.phone{min-height:0;margin:0 auto!important;border-radius:0!important}}
+@media(max-width:390px){.onroom-bottom-nav img{height:58px}}
+
+.onroom-bottom-nav button{display:flex;align-items:center;justify-content:center;width:100%;height:66px;padding:0;border:0;background:transparent;border-radius:14px;opacity:1}

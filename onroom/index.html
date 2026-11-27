@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#FAF9F6" name="theme-color"/><title>사이ON | 온미·온룸 꾸미기</title><script>
+/* Cloudflare Pages may serve /onroom/index.html at the clean URL /onroom.
+   In that case document-relative CSS, JS and image URLs resolve against /.
+   Set the document base to the actual onroom directory before any assets load. */
+(function(){
+  var p=window.location.pathname;
+  if(/\/onroom$/.test(p)){
+    var base=document.createElement('base');
+    base.href=window.location.origin+p+'/';
+    document.head.appendChild(base);
+  }
+})();
+</script><link href="styles.css" rel="stylesheet"/></head><body>
+<main class="phone"><div class="onroom-scroller"><div class="m2-toolbar"><a aria-label="프로필 설정으로 돌아가기" class="m2-back" href="../index.html#profile">← 프로필 설정</a><span class="m2-logo">사이<span>✳</span>ON</span></div><header><h1>온미·온룸 꾸미기</h1><p>나만의 아바타 ‘온미’와 ‘온룸’을 자유롭게 꾸며보세요.</p></header>
+<section class="scene" id="scene"><img alt="온룸 배경" class="room" id="bg"/><div class="warm-overlay"></div><div aria-label="내가 꾸민 온미 아바타" class="avatar"><img alt="" id="hairBack"/><img alt="기본 온미 아바타" id="body" src="assets/base/base_body.svg"/><img alt="" id="outfit"/><img alt="" id="face"/><img alt="" id="hairFront"/></div><img alt="감정등" class="mood" id="mood"/><span class="scene-sign">ON ME · ON ROOM</span></section>
+<nav aria-label="꾸미기 메뉴" class="tabs"><button class="active" data-tab="hair">✂<small>헤어</small></button><button data-tab="face">☺<small>표정</small></button><button data-tab="outfit">♧<small>의상</small></button><button data-tab="background">▣<small>배경</small></button><button data-tab="mood">✧<small>감정등</small></button></nav>
+<section class="selection"><div class="selection-heading"><h2 id="sectionTitle">헤어 스타일 선택</h2><span id="total">8종</span></div><div class="choices" id="choices"></div><div class="hint">선택하면 위 온미에게 즉시 적용돼요.</div></section>
+<div class="actions"><button class="save" id="save">꾸미기 저장하기</button><a class="m2-return" href="../index.html#profile">프로필 설정으로 돌아가기</a><button class="reset" id="reset">기본 모습으로 초기화</button><button class="remove" id="undress">기본 나시·반바지 보기</button></div><div aria-live="polite" id="toast" role="status"></div>
+</div><nav aria-label="하단 메뉴" class="onroom-bottom-nav"><a aria-label="나" class="active" href="../index.html#home"><img alt="나" src="../assets/navigation/nav_me.png"/></a><a aria-label="온디" href="../index.html#bamboo"><img alt="온디" src="../assets/navigation/nav_ondi.png"/></a><a aria-label="YOU 너에게" href="../index.html#youInbox"><img alt="YOU 너에게" src="../assets/navigation/nav_you.png"/></a><button aria-label="WE 우리 · 준비 중" disabled="" title="WE 우리 · 준비 중" type="button"><img alt="WE 우리" src="../assets/navigation/nav_we.png"/></button></nav></main><script defer="" src="app.js"></script></body></html>
