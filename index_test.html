@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#FAF9F6" name="theme-color"/>
+<title>사이ON · M40 WE 우리의 이야기</title>
+
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app" id="app">
+<section aria-label="로그인 화면" class="screen login-screen" id="loginScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<div aria-label="사이ON" class="login-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div>
+<div class="login-hero"><img alt="따뜻한 조명 아래의 온디 캐릭터" src="assets/login-ondi-art.webp"/></div>
+<h1 class="login-title">마음을 잇는 시작</h1>
+<div aria-hidden="true" class="accent-line"></div>
+<form class="login-form" id="loginForm" novalidate="">
+<label class="login-field"><span aria-hidden="true">✉</span><input aria-label="이메일" autocomplete="email" id="email" placeholder="이메일" type="email"/></label>
+<label class="login-field"><span aria-hidden="true">♙</span><input aria-label="비밀번호" autocomplete="current-password" id="password" placeholder="비밀번호" type="password"/><button aria-label="비밀번호 표시" class="eye" id="showPassword" type="button">◉</button></label>
+<label class="keep-login"><input checked="" type="checkbox"/> 로그인 상태 유지</label>
+<button class="primary login-button" type="submit">로그인</button>
+</form>
+<div class="login-secondary"><button data-pending="비밀번호 찾기" type="button">비밀번호 찾기</button><span>|</span><button id="joinFromLogin" type="button">회원가입</button></div>
+<div class="join-divider">간편 가입</div>
+<button class="social naver" data-pending="네이버 로그인" type="button">N   네이버로 가입하기</button>
+<button class="social kakao" data-pending="카카오 로그인" type="button">●   카카오톡으로 가입하기</button>
+<p class="screen-code">SCREEN AUTH-010</p>
+</section>
+<!-- M10: 실제 입력형 회원가입 · 동의·정책 안내 · 개인정보·알림 설정 -->
+<section aria-label="회원가입" class="screen onboarding-screen" hidden="" id="signupScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<div class="signup-logo official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div>
+<main class="onboard-main">
+<h1>회원가입</h1><p class="step-pills"><b>♙ 가입 정보</b><span>›</span><span>✓ 약관 동의</span></p>
+<div class="onboard-hero"><div><h2>사이ON에 오신 것을<br/>환영해요!</h2><p>마음을 나누고, 더 가까이 이어지는<br/>따뜻한 소통을 시작해요.</p></div><img alt="온디" src="assets/login-ondi-art.webp"/></div>
+<form id="signupForm" novalidate="">
+<div class="signup-fields">
+<label><span>♙  닉네임</span><input autocomplete="nickname" id="signupNickname" maxlength="20" placeholder="닉네임을 입력해 주세요." required=""/></label>
+<label><span>✉  이메일</span><input autocomplete="email" id="signupEmail" placeholder="이메일을 입력해 주세요." required="" type="email"/></label>
+<label><span>♙  비밀번호</span><input autocomplete="new-password" id="signupPassword" maxlength="72" minlength="8" placeholder="8자 이상 입력해 주세요." required="" type="password"/></label>
+<label><span>♙  비밀번호 확인</span><input autocomplete="new-password" id="signupConfirm" placeholder="비밀번호를 다시 입력해 주세요." required="" type="password"/></label>
+</div>
+<div class="consent-card">
+<label class="consent-all"><input id="agreeAll" type="checkbox"/> <b>필수 약관에 모두 동의합니다.</b></label>
+<label class="consent-row"><input class="required-consent" id="agreeTerms" type="checkbox"/><span>서비스 이용약관 <b>(필수)</b></span><button aria-label="서비스 이용약관 보기" id="signupViewTerms" type="button">›</button></label>
+<label class="consent-row"><input class="required-consent" id="agreePrivacy" type="checkbox"/><span>개인정보 처리방침 <b>(필수)</b></span><button aria-label="개인정보 처리방침 보기" id="signupViewPrivacy" type="button">›</button></label>
+</div>
+<button class="primary onboarding-primary" type="submit">✓  가입하기</button>
+</form>
+<button class="onboarding-text-link" id="signupBackLogin" type="button">로그인으로 돌아가기 ›</button>
+<p class="onboarding-notice">프로토타입 · 실제 계정/서버 생성 없음 · 비밀번호 저장 안 함</p>
+</main>
+</section>
+<section aria-label="이용약관" class="screen policy-screen" hidden="" id="termsScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button class="back-button" id="termsBack" type="button">‹</button><span class="header-label">이용약관</span><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><span class="settings-spacer">⚙</span></header>
+<div class="policy-hero simple-hero"><div><h1>▣ 서비스 이용 안내</h1><p>사이ON을 더 안전하고 따뜻하게<br/>이용하기 위한 약관과 정책이에요.</p></div></div>
+<main class="policy-main">
+<button class="policy-line" id="expandTerms" type="button">▤  서비스 이용약관 <span>›</span></button>
+<button class="policy-line" id="termsPrivacy" type="button">♧  개인정보 처리방침 <span>›</span></button>
+<button class="policy-line" id="expandConsent" type="button">☑  동의 내역 <span>›</span></button>
+<article class="policy-paper" id="policyPaper"><div class="policy-paper-icon">☑</div><h2>약관 본문</h2><p>서비스 이용과 관련된 권리와 책임을 확인하는 영역입니다.</p><p class="policy-placeholder">화면 시안 · 정식 약관 적용 예정</p><div class="policy-version"><b>현재 적용 약관</b><span>v1.0 (프로토타입)</span></div></article>
+<button class="primary onboarding-primary" id="termsConfirm" type="button">✓  확인</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="설정" class="screen settings-overview-screen" hidden="" id="settingsScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button class="back-button" id="settingsBack" type="button">‹</button><span class="header-label">설정</span><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div></header>
+<main class="settings-overview-main"><h1>설정</h1><p>내 정보와 알림을 관리해보세요.</p>
+<button class="policy-line" id="settingsProfile" type="button">♙  프로필 설정 <span>›</span></button>
+<button class="policy-line" id="settingsAlerts" type="button">♧  알림 설정 <span>›</span></button>
+<button class="policy-line" id="settingsPrivacy" type="button">♙  개인정보 관리 <span>›</span></button>
+<button class="policy-line" id="settingsTerms" type="button">▤  이용약관 <span>›</span></button>
+<button class="primary onboarding-primary" id="settingsReturnHome" type="button">홈으로 돌아가기</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button class="active" data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="개인정보 관리" class="screen privacy-screen" hidden="" id="privacyScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button class="back-button" id="privacyBack" type="button">‹</button><span class="header-label">개인정보 관리</span><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div></header>
+<main class="privacy-main"><h1>♧ 내 기록의 주인은 나예요</h1>
+<button class="policy-line" id="privacyPolicy" type="button">▤  개인정보 처리방침<span>›</span></button>
+<button class="policy-line" id="privacyConsents" type="button">☑  동의 내역 확인<span>›</span></button>
+<div class="policy-line disclosure-row"><span>☷  개인 기록 공개 범위</span><select aria-label="개인 기록 공개 범위" id="disclosure"><option value="private">기본 비공개</option><option value="private-confirmed">비공개 유지</option></select></div>
+<p class="privacy-note">ⓘ  감정 기록과 온디 대화는 자동 공유되지 않아요.<br/>내가 고른 내용만 직접 전달합니다.</p>
+<button class="primary onboarding-primary" id="privacySave" type="button">설정으로 돌아가기</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button class="active" data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="알림 설정" class="screen alerts-screen" hidden="" id="alertsScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button class="back-button" id="alertsBack" type="button">‹</button><span class="header-label">알림 설정</span><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div></header>
+<div class="alerts-hero simple-hero"><div><h1>♧ 알림 설정</h1><p>사이ON의 알림으로<br/>마음을 더 가까이 나눠보세요.</p></div></div>
+<main class="alerts-main">
+<label class="toggle-row master"><span>♧  전체 알림 받기</span><input checked="" id="alertAll" type="checkbox"/><i></i></label>
+<div class="toggle-group">
+<label class="toggle-row"><span>♡  새마음알림</span><input checked="" class="alert-item" id="alertHeart" type="checkbox"/><i></i></label>
+<label class="toggle-row"><span>♧  우리그룹알림</span><input checked="" class="alert-item" id="alertGroup" type="checkbox"/><i></i></label>
+<label class="toggle-row"><span>♡  온디의마음다시묻기</span><input checked="" class="alert-item" id="alertRecheck" type="checkbox"/><i></i></label>
+</div>
+<div class="setting-row">◷  마음 다시 묻기 <select aria-label="마음 다시 묻기 시간" id="reminderTime"><option value="16:00">오후 4:00</option><option value="13:00">오후 1:00</option><option value="19:00">오후 7:00</option><option value="21:00">오후 9:00</option></select></div>
+<div class="setting-row">▯  기기 알림 권한 <span class="demo-pill">브라우저 데모</span></div>
+<button aria-expanded="false" class="policy-line" id="quietToggle" type="button">♧  쉬어가기 <span>⌄</span></button>
+<div class="quiet-panel" hidden="" id="quietPanel"><label class="toggle-row"><span>방해받지 않는 시간 사용</span><input id="quietEnabled" type="checkbox"/><i></i></label><div class="quiet-times"><label>시작 <input id="quietFrom" type="time" value="22:00"/></label><label>종료 <input id="quietTo" type="time" value="08:00"/></label></div></div>
+<p class="alerts-note">🍃  내가 요청한 시간에만, 답하지 않아도 재촉하지 않아요.</p>
+<button class="secondary-continue" id="previewRecheck" type="button">기분 다시 묻기 미리보기 <span>›</span></button>
+<button class="primary onboarding-primary" id="alertsSave" type="button">✓  설정 저장하기</button>
+<p class="onboarding-notice">실제 푸시 알림 발송은 아직 연결하지 않았어요.</p>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button class="active" data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="프로필 설정 화면" class="screen profile-screen" hidden="" id="profileScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header">
+<button aria-label="로그인으로 돌아가기" class="back-button" id="backToLogin">‹</button>
+<span class="header-label">프로필 설정</span>
+<div aria-label="사이ON" class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div>
+<button aria-label="설정" class="settings-button" id="profileSettingsButton" type="button">⚙</button>
+</header>
+<main class="profile-main">
+<h1>프로필 설정</h1>
+<p class="subhead">나의 기본 정보</p>
+<form id="profileForm" novalidate="">
+<div class="profile-fields">
+<label class="profile-field"><span class="field-name">닉네임 설정하기</span><input autocomplete="nickname" id="nickname" maxlength="20" name="nickname" placeholder="닉네임 입력" required=""/><span class="chevron">›</span></label>
+<label class="profile-field"><span class="field-name">생년월일 설정하기</span><input aria-label="생년월일" id="birthday" name="birthday" required="" type="date"/><span class="chevron">›</span></label>
+<label class="profile-field"><span class="field-name">성별 설정하기</span><select aria-label="성별" id="gender" name="gender" required=""><option value="">선택해 주세요</option><option value="여성">여성</option><option value="남성">남성</option><option value="선택 안 함">선택 안 함</option></select><span class="chevron">›</span></label>
+</div>
+<h2 class="profile-section-title">나의 아바타와 공간</h2>
+<img alt="온미와 온룸을 꾸미는 아늑한 서재 공간 이미지" class="room-image" src="assets/profile-room.webp"/>
+<button class="nav-row" id="openOnmi" type="button">나만의 온미 꾸미기<span>›</span></button>
+<button class="nav-row" id="openOnroom" type="button">나만의 온룸 꾸미기<span>›</span></button>
+<button class="primary save-button" type="submit">변경사항 저장</button>
+<p aria-live="polite" class="save-message" id="saveMessage" role="status"></p>
+</form>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav">
+<button aria-current="page" class="active" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button>
+<button aria-label="온디의 대나무숲으로 이동" data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button>
+<button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button>
+<button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button>
+</nav>
+</section>
+<section aria-label="사이ON 홈" class="screen home-screen" hidden="" id="homeScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header home-header">
+<button aria-label="프로필 설정으로 돌아가기" class="back-button" id="homeBack" type="button">‹</button>
+<span class="header-label">마음전등</span>
+<div aria-label="사이ON" class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div>
+<button aria-label="프로필 설정" class="settings-button" id="homeSettings" type="button">⚙</button>
+</header>
+<main class="home-content">
+<h1 id="homeGreeting">오늘도 나에게 ON</h1>
+<p class="home-subtitle">홈오피스 서재 · 오늘의 마음 전등</p>
+<div aria-label="내가 저장한 온미와 온룸" class="home-scene" id="homeScene">
+<img alt="내가 꾸민 온룸 배경" class="home-room-bg" id="homeBg"/>
+<div aria-hidden="true" class="home-scene-shade"></div>
+<div aria-label="내가 꾸민 온미 아바타" class="home-avatar">
+<img alt="" id="homeHairBack"/>
+<img alt="온미 기본 캐릭터" id="homeBody" src="onroom/assets/base/base_body.svg"/>
+<img alt="" id="homeOutfit"/>
+<img alt="" id="homeFace"/>
+<img alt="" id="homeHairFront"/>
+</div>
+<img alt="내가 선택한 감정등" class="home-mood" id="homeMood"/>
+<button aria-label="온미 온룸 다시 꾸미기" class="home-scene-edit" id="homeEditRoom" type="button">꾸미기 ✎</button>
+</div>
+<button class="inbox-strip" id="homeInbox" type="button">엄마의 새 마음이 도착했어요 <span>›</span></button>
+<section class="feeling-panel">
+<h2>지금, 내 마음은 어떤가요?</h2>
+<div class="feelings-grid" id="homeFeelingGrid">
+<button class="feeling-choice" data-feeling="행복해요" type="button"><img alt="" src="assets/emotion-lamps/lamp_01.png"/><span>행복해요</span></button>
+<button class="feeling-choice" data-feeling="무난해요" type="button"><img alt="" src="assets/emotion-lamps/lamp_02.png"/><span>무난해요</span></button>
+<button class="feeling-choice" data-feeling="활기차요" type="button"><img alt="" src="assets/emotion-lamps/lamp_03.png"/><span>활기차요</span></button>
+<button class="feeling-choice" data-feeling="화가나요" type="button"><img alt="" src="assets/emotion-lamps/lamp_04.png"/><span>화가나요</span></button>
+<button class="feeling-choice" data-feeling="우울해요" type="button"><img alt="" src="assets/emotion-lamps/lamp_05.png?v=m9"/><span>우울해요</span></button>
+<button class="feeling-choice" data-feeling="지쳐요" type="button"><img alt="" src="assets/emotion-lamps/lamp_06.png"/><span>지쳐요</span></button>
+</div>
+<p class="home-room-note">☁  서재에 라벤더빛을 켰어요.</p>
+</section>
+<button class="primary home-record" id="homeRecord" type="button">오늘의 마음 기록하기</button>
+<button class="home-line-button" id="homeOndi" type="button">온디와 이야기하기 <span>›</span></button>
+<button class="home-line-button" id="homeCalendar" type="button">감정 캘린더 <span>›</span></button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav">
+<button aria-current="page" class="active" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button>
+<button aria-label="온디의 대나무숲으로 이동" data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button>
+<button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button>
+<button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button>
+</nav>
+</section>
+<!-- M4: 기능형 오늘의 마음 기록 -->
+<section aria-label="오늘의 마음 기록" class="screen detail-screen" hidden="" id="recordScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="detail-topbar"><div aria-label="사이ON" class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><button class="detail-setting" data-pending="알림" type="button">♧</button></header>
+<div class="detail-heading"><button aria-label="뒤로가기" class="detail-back" id="recordBack">‹</button><h1>오늘의 마음 기록</h1></div>
+<div class="record-intro"><div class="record-copy"><h2>오늘,<br/>내 마음은 어떤가요?</h2><p>지금 느끼는 마음을 선택하고<br/>온디와 함께 기록해보세요.</p></div><img alt="하트를 안고 있는 온디" src="assets/record-ondi.png"/></div>
+<main class="detail-body">
+<section class="detail-card record-card">
+<h2>✎   지금 어떤 마음인가요?</h2>
+<div class="selected-feeling" id="recordFeelingText">감정등을 먼저 골라주세요.</div>
+<label class="visually-hidden" for="recordNote">오늘의 마음 기록</label>
+<textarea id="recordNote" maxlength="300" placeholder="오늘의 기분, 있었던 일, 떠오른 생각을 자유롭게 적어보세요."></textarea>
+<div class="char-count"><span id="recordCount">0</span> / 300</div>
+</section>
+<div class="ondi-tip"><img alt="온디" src="assets/login-ondi-art.webp"/><p><b>좋아요! 😊</b><br/>지금의 기분을 이렇게 기록해두면,<br/>내 마음을 더 잘 이해할 수 있어요.</p></div>
+<button class="primary detail-primary" id="recordSave" type="button">✓   오늘의 마음 기록하기</button>
+<p class="detail-status" id="recordSaveStatus" role="status"></p>
+<button class="secondary-continue" id="recordToBamboo" type="button">온디에게 이야기하기 <span>›</span></button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button class="active" data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<!-- M5: 개인 전용 온디와 1:1 채팅 -->
+<!-- M6 감정 캘린더: 모든 날짜·기록은 실제 저장 데이터로 렌더링 -->
+<section aria-label="감정 캘린더" class="screen calendar-screen" hidden="" id="calendarScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header calendar-header">
+<button aria-label="홈으로 돌아가기" class="back-button" id="calendarBack" type="button">‹</button>
+<span class="header-label">감정 캘린더</span>
+<div aria-label="사이ON" class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div>
+<button aria-label="프로필 설정" class="settings-button" id="calendarSettings" type="button">⚙</button>
+</header>
+<div class="calendar-art"><img alt="편안한 공간에서 하트를 들고 있는 온디와 따뜻한 조명" src="assets/calendar-banner.webp"/></div>
+<main class="calendar-main">
+<h1>🗓️ 감정 캘린더</h1>
+<p class="calendar-subtitle">날짜를 누르면 그날의 기록을 볼 수 있어요.</p>
+<section aria-label="월별 감정 기록" class="calendar-card">
+<div class="calendar-month-row">
+<button aria-label="이전 달" id="calendarPrev" type="button">‹</button>
+<strong id="calendarMonthLabel"></strong>
+<button aria-label="다음 달" id="calendarNext" type="button">›</button>
+</div>
+<div aria-hidden="true" class="calendar-weekdays"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+<div aria-label="날짜별 감정 기록" class="calendar-days" id="calendarDays" role="grid"></div>
+<div aria-label="감정 색상 안내" class="calendar-legend">
+<span><i style="--mood-color:#ed91a8"></i>행복해요</span><span><i style="--mood-color:#f3bf55"></i>무난해요</span><span><i style="--mood-color:#a8c981"></i>활기차요</span>
+<span><i style="--mood-color:#ef8476"></i>화가나요</span><span><i style="--mood-color:#bca3df"></i>우울해요</span><span><i style="--mood-color:#bcb8b3"></i>지쳐요</span>
+</div>
+</section>
+<section aria-label="선택한 날짜의 기록" aria-live="polite" class="calendar-detail" id="calendarDetail">
+<h2 id="calendarDetailHeading">날짜를 선택해 주세요</h2>
+<div class="calendar-detail-content" id="calendarDetailContent">기록이 있는 날짜 아래에 감정 색 점이 표시돼요.</div>
+<button class="calendar-edit" hidden="" id="calendarEdit" type="button">오늘의 기록 수정하기</button>
+</section>
+<button class="primary calendar-home-button" id="calendarHome" type="button">홈으로 돌아가기</button>
+<p class="calendar-private">🔒 내 감정 기록은 나에게만 보여요.</p>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button class="active" data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="온디의 대나무숲 1대1 채팅" class="screen detail-screen bamboo-screen chat-screen" hidden="" id="bambooScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="chat-header">
+<button aria-label="감정 기록으로 돌아가기" class="chat-back" id="bambooBack" type="button">‹</button>
+<div class="chat-header-person">
+<img alt="온디" src="assets/record-ondi.png"/>
+<div><strong>온디의 대나무숲</strong><span><i class="online-dot"></i> 온디 · 나만의 대화</span></div>
+</div>
+<button aria-label="개인 대화 안내" class="chat-info-btn" id="bambooPrivacy" type="button">🔒</button>
+</header>
+<div class="chat-banner">🌿  이곳의 이야기는 가족과 공유되지 않아요.</div>
+<main aria-label="온디와의 대화 내용" aria-live="polite" aria-relevant="additions" class="chat-thread" id="chatThread" role="log">
+<div class="chat-date-divider" id="chatDateLabel">오늘</div>
+<div id="chatMessages"></div>
+</main>
+<div aria-label="대화 주제 선택" class="chat-quick-replies" id="chatSuggestions">
+<button data-suggestion="오늘 있었던 일" type="button">오늘 있었던 일</button>
+<button data-suggestion="지금 느끼는 감정" type="button">지금 느끼는 감정</button>
+<button data-suggestion="고민 또는 걱정" type="button">고민 또는 걱정</button>
+</div>
+<form autocomplete="off" class="chat-composer" id="bambooChatForm">
+<label class="visually-hidden" for="bambooNote">온디에게 메시지 입력</label>
+<textarea aria-label="온디에게 메시지 입력" id="bambooNote" maxlength="500" placeholder="온디에게 이야기해 주세요..." rows="1"></textarea>
+<button aria-label="메시지 전송" id="bambooSend" title="메시지 전송" type="submit">➤</button>
+</form>
+<div class="chat-meta"><span>데모 자동 응답 · 실제 AI 연결 전</span><span id="bambooCount">0 / 500</span></div>
+<button class="secondary-continue chat-next-check" id="bambooToRecheck" type="button">온디가 다시 물어볼게요 <span>›</span></button>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button aria-current="page" class="active" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="마음 체크" class="screen recheck-screen" hidden="" id="recheckScreen">
+<div class="status recheck-status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header recheck-clean-header">
+<button aria-label="이전 화면" class="back-button" id="recheckBack" type="button">‹</button>
+<div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div>
+<button aria-label="설정" class="icon-button" id="recheckSettings" type="button">⚙</button>
+</header>
+<main class="recheck-clean-body">
+<h1>마음 체크</h1>
+<p class="recheck-live-reminder" id="recheckReminderText">마음 다시 묻기 · 오후 4:00</p>
+<img alt="돋보기로 마음을 살펴보는 온디" class="recheck-clean-hero" src="assets/recheck-hero-clean.png"/>
+<p class="recheck-clean-speech">지금 상태를 다시 확인해볼까요?</p>
+<h2>지금은 마음이<br/>조금 나아지셨나요?</h2>
+<div aria-label="마음 상태 선택" class="recheck-clean-options">
+<button aria-label="나아졌어요" id="optionBetter" type="button"><img alt="나아졌어요" src="assets/recheck-choice-better.png"/></button>
+<button aria-label="비슷해요" id="optionSame" type="button"><img alt="비슷해요" src="assets/recheck-choice-same.png"/></button>
+<button aria-label="더 힘들어요" id="optionHarder" type="button"><img alt="더 힘들어요" src="assets/recheck-choice-hard.png"/></button>
+</div>
+</main></section>
+<section aria-label="기분이 나아졌어요" class="screen path-screen" hidden="" id="betterScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header recheck-header"><button class="back-button" id="betterBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><div class="header-actions"><button class="icon-button" data-pending="알림" type="button">♧</button><button class="icon-button" id="betterSettings" type="button">⚙</button></div></header>
+<main class="path-main">
+<h1 class="path-title accent-green">기분이 한결 나아졌어요!</h1>
+<div class="path-hero"><img alt="기뻐하는 온디" src="assets/record-ondi.png"/></div>
+<p class="path-lead">정말 잘하고 있어요.<br/>이 기분을 소중한 사람과 나눠볼까요?</p>
+<section class="summary-card">
+<h2>오늘의 마음 요약</h2>
+<div class="summary-content" id="betterSummary"></div>
+</section>
+<button class="primary detail-primary" id="goShareFeeling" type="button">✈   마음 전하기</button>
+<button class="ghost-action" id="betterStay" type="button">지금은 괜찮아요</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button class="active" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="마음 전하기" class="screen share-screen" hidden="" id="shareScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header recheck-header"><button class="back-button" id="shareBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><div class="header-actions"><button class="icon-button" data-pending="알림" type="button">♧</button><button class="icon-button" id="shareSettings" type="button">⚙</button></div></header>
+<main class="share-main">
+<h1>마음 전하기</h1>
+<p class="share-sub">지금 이 기분을<br/>소중한 사람에게 전해볼까요?</p>
+<section class="summary-card">
+<h2>온디와 정리한 내 마음</h2>
+<div class="summary-content" id="shareSummary"></div>
+</section>
+<section class="recipients-card">
+<h2>누구에게 마음을 전할까요?</h2>
+<div class="recipient-grid" id="recipientGrid">
+<button class="recipient" data-recipient="엄마" type="button"><div class="avatar-circle">엄</div><span>엄마</span></button>
+<button class="recipient" data-recipient="민수" type="button"><div class="avatar-circle">민</div><span>민수</span></button>
+<button class="recipient" data-recipient="가족" type="button"><div class="avatar-circle">가</div><span>가족</span></button>
+<button class="recipient add" id="addRecipient" type="button"><div class="avatar-circle">＋</div><span>추가</span></button>
+</div>
+</section>
+<button class="primary detail-primary" id="sendFeeling" type="button">✈   마음 보내기</button>
+<p class="share-note">내가 고른 사람에게만 마음을 전하고, 따뜻한 위로와 공감을 받아보세요.</p>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button aria-current="page" class="active" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="엄마의 응원 추천" class="screen path-screen" hidden="" id="voiceRecommendScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header recheck-header"><button class="back-button" id="voiceRecommendBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><div class="header-actions"><button class="icon-button" data-pending="알림" type="button">♧</button><button class="icon-button" id="voiceRecommendSettings" type="button">⚙</button></div></header>
+<main class="path-main">
+<h1 class="path-title">아직 마음이 조금 무거운가요?</h1>
+<div class="voice-card feature-card">
+<div class="feature-top"><img alt="온디" src="assets/record-ondi.png"/><div><h2>엄마의 응원 목소리</h2><span class="recommend-badge">추천</span></div></div>
+<div class="fake-wave">▶︎  00:00 / 01:28</div>
+<blockquote>“우리 딸, 오늘도 충분히 잘하고 있어. 조금만 더 힘내봐, 엄마가 응원해.”</blockquote>
+</div>
+<button class="primary detail-primary" id="openVoicePlayer" type="button">▶   엄마의 응원 듣기</button>
+<button class="ghost-action" id="voiceOtherTips" type="button">✨ 다른 방법 추천받기</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button class="active" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="엄마의 응원 목소리 재생" class="screen player-screen" hidden="" id="voicePlayerScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header recheck-header"><button class="back-button" id="voicePlayerBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><div class="header-actions"><button class="icon-button" data-pending="알림" type="button">♧</button><button class="icon-button" id="voicePlayerSettings" type="button">⚙</button></div></header>
+<main class="player-main">
+<h1>엄마의 응원 목소리</h1>
+<div class="player-hero"><img alt="응원하는 온디" src="assets/record-ondi.png"/></div>
+<div class="player-box">
+<div class="progress-line"><button class="mini-play" id="voiceMiniPlay" type="button">▶</button><div class="track"><div class="track-fill" id="voiceTrackFill"></div></div><span id="voiceTimeLabel">00:00 / 01:32</span></div>
+<blockquote>“우리 딸, 오늘도 충분히 잘하고 있어. 조금만 더 힘내자, 엄마가 응원해.”</blockquote>
+<div class="player-controls"><button class="round-control" id="voiceBack15" type="button">15</button><button class="round-control primary-round" id="voicePlayPause" type="button">▶</button><button class="round-control" id="voiceForward15" type="button">15</button></div>
+</div>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button class="active" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button data-open-you="1" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="함께 호흡하기 추천" class="screen reference-screen" hidden="" id="breatheRecommendScreen">
+<main aria-label="함께 호흡하기 추천 화면 미리보기" class="reference-main breathe-reference-main">
+<img alt="함께 호흡하기 추천 화면" class="reference-image" src="assets/breathe-recommend-reference-no-footer.png"/>
+<button aria-label="이전으로" class="hotspot hotspot-back" id="breatheRecommendBack" type="button"></button>
+<button aria-label="설정" class="hotspot hotspot-settings" id="breatheRecommendSettings" type="button"></button>
+<button aria-label="함께 호흡하기" class="hotspot breathe-open-hotspot" id="openBreathePlayer" title="함께 호흡하기 실행 화면 열기" type="button"></button>
+<button aria-label="지금은 쉬어갈래요" class="hotspot breathe-rest-hotspot" id="breatheRest" type="button"></button>
+<button aria-label="나" class="hotspot nav-home-hotspot" data-goto="home" type="button"></button>
+<button aria-current="page" aria-label="온디" class="hotspot nav-ondi-hotspot" type="button"></button>
+<button aria-label="YOU 너에게" class="hotspot nav-you-hotspot" data-open-you="1" type="button"></button>
+<button aria-label="WE 우리" class="hotspot nav-we-hotspot" data-open-we="1" type="button"></button>
+</main>
+</section>
+<section aria-label="함께 호흡하기" class="screen reference-screen" hidden="" id="breathePlayerScreen">
+<main aria-label="함께 호흡하기 실행 화면" class="reference-main breathe-player-reference-main">
+<img alt="함께 호흡하기 실행 화면" class="reference-image" src="assets/breathe-player-reference-no-footer.png"/>
+<button aria-label="이전으로" class="hotspot hotspot-back" id="breathePlayerBack" type="button"></button>
+<button aria-label="설정" class="hotspot hotspot-settings" id="breathePlayerSettings" type="button"></button>
+<button aria-label="호흡 일시정지" class="hotspot breathe-pause-hotspot" id="breathePlayPause" type="button"></button>
+<div class="breathe-live-indicator" id="breatheLiveIndicator">진행 중</div>
+<div class="breathe-live-time" id="breatheTimeLabel">03:00</div>
+<button aria-label="나" class="hotspot nav-home-hotspot" data-goto="home" type="button"></button>
+<button aria-current="page" aria-label="온디" class="hotspot nav-ondi-hotspot" type="button"></button>
+<button aria-label="YOU 너에게" class="hotspot nav-you-hotspot" data-open-you="1" type="button"></button>
+<button aria-label="WE 우리" class="hotspot nav-we-hotspot" data-open-we="1" type="button"></button>
+</main>
+</section>
+<!-- M21: YOU 탭의 첫 화면 = 새 마음이 도착했어요 -->
+<section aria-label="YOU 너에게 - 새 마음이 도착했어요" class="screen you-m38-welcome" hidden="" id="youInboxScreen">
+<div class="you-m38-scroll">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="you-m38-header">
+<button aria-label="홈으로 돌아가기" class="you-m38-back" id="youInboxBack" type="button">‹</button>
+<img alt="사이ON" src="assets/saion-official-logo.png"/>
+<button aria-label="알림" class="you-m38-bell" id="youInboxBell" type="button">♧</button>
+</header>
+<div class="you-m38-actions">
+<button class="you-m38-tab selected" id="youWelcomeReceive" type="button"><span aria-hidden="true">✉</span> 받기</button>
+<button class="you-m38-tab" id="youStartSend" type="button"><span aria-hidden="true">➤</span> 보내기</button>
+</div>
+<div class="you-m38-hero"><img alt="새 마음이 도착한 온디" src="assets/you-welcome-hero-m38.webp"/></div>
+<div class="you-m38-title">새 마음이<br/>도착했어요! <span>♡</span></div>
+<button class="you-m38-open-list" id="youOpenHistory" type="button">받은 마음 보기 <span aria-hidden="true">›</span></button>
+</div>
+</section>
+<!-- M21: 받은 마음 보기 -> 주고받은 마음 내역 -->
+<!-- M29: 본문은 DOM으로 만들고 감정등을 가장 앞에 배치하는 실제 스크롤 목록 -->
+<section aria-label="YOU 너에게 - 주고받은 마음 내역" class="screen you-history-live" hidden="" id="youHistoryScreen">
+<div class="you-history-top">
+<img alt="사이ON 받은 마음 · 전체 글 음성 사진" src="assets/you-list-header.png"/>
+<button aria-label="새 마음 화면으로 돌아가기" class="you-list-hit live-back" id="youHistoryBack" type="button"></button>
+<button aria-label="알림" class="you-list-hit live-bell" id="youHistoryBell" type="button"></button>
+<div aria-label="마음 종류" class="you-live-tabs" role="tablist">
+<button aria-selected="true" class="active" data-you-filter="all" id="youTabAll" role="tab" type="button">전체</button>
+<button aria-selected="false" data-you-filter="text" id="youTabText" role="tab" type="button">글</button>
+<button aria-selected="false" data-you-filter="voice" id="youTabVoice" role="tab" type="button">음성</button>
+<button aria-selected="false" data-you-filter="photo" id="youTabPhoto" role="tab" type="button">사진</button>
+</div>
+</div>
+<div aria-label="마음 목록 빠른 이동" class="you-m38-list-actions">
+<button id="youHistoryStartSend" type="button">＋ 마음 보내기 <span aria-hidden="true">➤</span></button>
+</div>
+<main aria-label="받은 마음과 보낸 마음 목록" class="you-history-scroll" id="youHistoryScroll">
+<div class="you-history-cards" id="youHistoryCards"></div>
+</main>
+</section>
+<section aria-label="마음 보내기 - 받는 사람 선택" class="screen you-compose-screen you-flow-screen" hidden="" id="youComposeScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button aria-label="YOU 너에게로 돌아가기" class="back-button" id="youComposeBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><button aria-label="설정" class="icon-button" id="youComposeSettings" type="button">⚙</button></header>
+<main class="you-flow-main">
+<section class="you-flow-hero">
+<div>
+<h1>마음 보내기</h1>
+<p class="you-hero-copy">소중한 사람에게 마음을 전해보세요.</p>
+</div>
+<div class="you-hero-art"><img alt="하트를 품고 윙크하는 온디" src="assets/ondi-wink-heart-user.webp"/></div>
+</section>
+<div aria-label="YOU 탭" class="you-flow-switch" role="tablist">
+<button aria-selected="true" class="active" type="button">보내기</button>
+<button id="youComposeGoReceive" type="button">받기</button>
+</div>
+<section class="you-flow-card">
+<h2>받는 사람 선택</h2><p class="you-m38-step-hint">다음 단계에서 <b>사진 배경 · 글 · 음성</b>을 함께 담을 수 있어요.</p>
+<div aria-label="받는 사람 선택" class="you-person-list" id="youPersonList" role="radiogroup"></div>
+<button class="you-add-contact" id="youAddContact" type="button">＋ 가족·친구 추가하기</button>
+<div class="you-add-form" hidden="" id="youAddContactForm">
+<label>이름 <input autocomplete="off" id="youNewContactName" maxlength="16" placeholder="예: 아빠, 수아, 친구 민지" type="text"/></label>
+<label>관계 <select id="youNewContactRelation"><option value="가족">가족</option><option value="친구">친구</option><option value="연인">연인</option><option value="기타">기타</option></select></label>
+<button class="primary" id="youSaveContact" type="button">목록에 추가</button>
+</div>
+</section>
+<button class="primary you-flow-next" id="youComposeNext" type="button">마음카드 쓰기</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button class="active" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="마음카드 작성" class="screen you-compose-screen you-flow-screen" hidden="" id="youCardScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button aria-label="받는 사람 선택으로 돌아가기" class="back-button" id="youCardBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><button aria-label="설정" class="icon-button" id="youCardSettings" type="button">⚙</button></header>
+<main class="you-flow-main">
+<section class="you-flow-hero compact">
+<div>
+<h1>마음카드 쓰기</h1>
+<p class="you-hero-copy">배경을 고르고 카드 위에 마음을 적어보세요.</p>
+</div>
+<div class="you-hero-art"><img alt="하트를 품고 윙크하는 온디" src="assets/ondi-wink-heart-user.webp"/></div>
+</section>
+<div class="you-to-line"><span class="to-badge">To.</span> <strong id="youCardRecipient">민서</strong></div>
+<article aria-label="마음카드 미리보기" class="you-postcard bg-tulip" id="youCardPreview">
+<div class="card-paper">
+<p class="card-message" id="youCardPreviewText">오늘 함께해 줘서 고마워.</p>
+</div>
+</article>
+<label class="you-field-label" for="youCardMessage">카드 문구</label>
+<textarea class="you-card-textarea" id="youCardMessage" maxlength="120" placeholder="카드 위에 전할 말을 적어보세요." rows="4"></textarea>
+<section class="you-flow-card album-card">
+<div class="album-header"><h2>사진 · 앨범 배경 선택</h2><p>그림 느낌을 골라 카드 배경으로 사용할 수 있어요.</p></div>
+<div aria-label="배경 선택" class="album-grid" role="radiogroup">
+<button class="album-thumb selected" data-you-bg="tulip" type="button"><span class="thumb-art bg-tulip"></span><strong>튤립</strong></button>
+<button class="album-thumb" data-you-bg="sunset" type="button"><span class="thumb-art bg-sunset"></span><strong>노을 하늘</strong></button>
+<button class="album-thumb" data-you-bg="desk" type="button"><span class="thumb-art bg-desk"></span><strong>책과 머그컵</strong></button>
+<button class="album-thumb" data-you-bg="cat" type="button"><span class="thumb-art bg-cat"></span><strong>잠든 고양이</strong></button>
+</div>
+</section>
+<button class="primary you-flow-next" id="youCardNext" type="button">다음</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button class="active" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="음성 함께 남기기" class="screen you-compose-screen you-flow-screen" hidden="" id="youVoiceScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button aria-label="마음카드 작성으로 돌아가기" class="back-button" id="youVoiceBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><button aria-label="설정" class="icon-button" id="youVoiceSettings" type="button">⚙</button></header>
+<main class="you-flow-main">
+<section class="you-flow-hero compact">
+<div>
+<h1>목소리 담기</h1>
+<p class="you-hero-copy">원하면 내 목소리도 함께 보낼 수 있어요.</p>
+</div>
+<div class="you-hero-art"><img alt="하트를 품고 윙크하는 온디" src="assets/ondi-wink-heart-user.webp"/></div>
+</section>
+<div class="you-to-line"><span class="to-badge">To.</span> <strong id="youVoiceRecipient">민서</strong></div>
+<article class="you-postcard small bg-tulip" id="youVoiceCardPreview">
+<div class="card-paper"><p class="card-message" id="youVoicePreviewText">오늘 함께해 줘서 고마워.</p></div>
+</article>
+<section class="you-flow-card">
+<h2>내 목소리 직접 녹음하기 <span class="tiny-optional">선택</span></h2>
+<p class="you-card-hint">마이크 사용을 허용하면 녹음할 수 있어요. 음성 없이 보내도 괜찮아요.</p>
+<div class="voice-record-status" id="youRecordStatus" role="status">아직 녹음한 음성이 없어요.</div>
+<div class="voice-real-panel" hidden="" id="youVoicePanelMock">
+<audio aria-label="녹음한 음성 재생" controls="" id="youVoicePlayback" preload="metadata"></audio>
+<button aria-label="녹음 삭제" class="voice-delete" id="youVoiceDelete" type="button">삭제</button>
+</div>
+<div class="voice-actions">
+<button class="secondary voice-toggle" id="youVoiceToggle" type="button">● 녹음 시작</button>
+<label class="you-audio-upload">녹음 파일 선택 <input accept="audio/*" id="youAudioUpload" type="file"/></label>
+<button class="secondary" id="youVoiceSkip" type="button">음성 없이 다음</button>
+</div>
+<p class="you-card-hint">※ 실제 음성은 기기 브라우저에 저장되며, 상대방에게 네트워크로 전송되지 않습니다.</p>
+</section>
+<button class="primary you-flow-next" id="youVoiceNext" type="button">다음</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button class="active" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="확인하고 보내기" class="screen you-compose-screen you-flow-screen" hidden="" id="youReviewScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header"><button aria-label="음성 화면으로 돌아가기" class="back-button" id="youReviewBack" type="button">‹</button><div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div><button aria-label="설정" class="icon-button" id="youReviewSettings" type="button">⚙</button></header>
+<main class="you-flow-main">
+<section class="you-flow-hero compact">
+<div>
+<h1>확인하고 보내기</h1>
+<p class="you-hero-copy">보낼 마음카드와 감정을 마지막으로 확인해 보세요.</p>
+</div>
+<div class="you-hero-art"><img alt="하트를 품고 윙크하는 온디" src="assets/ondi-wink-heart-user.webp"/></div>
+</section>
+<div class="you-to-line"><span class="to-badge">To.</span> <strong id="youReviewRecipient">민서</strong></div>
+<article class="you-postcard review bg-tulip" id="youReviewCardPreview">
+<div class="card-paper">
+<p class="card-message" id="youReviewMessage">오늘 함께해 줘서 고마워.</p>
+<div class="voice-demo-panel review-inline" hidden="" id="youReviewVoice">
+<audio aria-label="보낼 음성 미리듣기" controls="" id="youReviewAudio" preload="metadata"></audio>
+</div>
+</div>
+</article>
+<section class="you-flow-card">
+<h2>함께 보낼 감정 선택</h2>
+<p class="you-card-hint">보내고 싶은 마음을 감정등으로 선택해 주세요.</p>
+<div aria-label="함께 보낼 감정 선택" class="emotion-grid emotion-list" role="radiogroup">
+<button aria-checked="true" class="emotion-chip emotion-row selected" data-you-emotion="행복해요" role="radio" type="button"><img alt="" class="emotion-lamp" src="assets/emotion-lamps/lamp_01.png"/><strong>행복해요</strong><span aria-hidden="true" class="emotion-radio"></span></button>
+<button aria-checked="false" class="emotion-chip emotion-row" data-you-emotion="무난해요" role="radio" type="button"><img alt="" class="emotion-lamp" src="assets/emotion-lamps/lamp_02.png"/><strong>무난해요</strong><span aria-hidden="true" class="emotion-radio"></span></button>
+<button aria-checked="false" class="emotion-chip emotion-row" data-you-emotion="활기차요" role="radio" type="button"><img alt="" class="emotion-lamp" src="assets/emotion-lamps/lamp_03.png"/><strong>활기차요</strong><span aria-hidden="true" class="emotion-radio"></span></button>
+<button aria-checked="false" class="emotion-chip emotion-row" data-you-emotion="화가나요" role="radio" type="button"><img alt="" class="emotion-lamp" src="assets/emotion-lamps/lamp_04.png"/><strong>화가나요</strong><span aria-hidden="true" class="emotion-radio"></span></button>
+<button aria-checked="false" class="emotion-chip emotion-row" data-you-emotion="우울해요" role="radio" type="button"><img alt="" class="emotion-lamp" src="assets/emotion-lamps/lamp_05.png?v=m9"/><strong>우울해요</strong><span aria-hidden="true" class="emotion-radio"></span></button>
+<button aria-checked="false" class="emotion-chip emotion-row" data-you-emotion="지쳐요" role="radio" type="button"><img alt="" class="emotion-lamp" src="assets/emotion-lamps/lamp_06.png"/><strong>지쳐요</strong><span aria-hidden="true" class="emotion-radio"></span></button>
+</div>
+</section>
+<button class="primary you-flow-next" id="youFinalSend" type="button">확인 버튼</button>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav"><button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button><button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button><button class="active" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button><button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button></nav>
+</section>
+<section aria-label="마음 보내기 완료" class="screen reference-screen you-complete-screen" hidden="" id="youCompleteScreen">
+<main aria-label="마음 보내기 완료 안내" class="reference-main you-complete-reference">
+<img alt="새 마음을 전했어요. 마음 목록으로 이동하는 완료 화면" class="reference-image" src="assets/you-complete-reference-no-footer.png"/>
+<div class="you-complete-custom" hidden="" id="youCompleteCustomName"><strong id="youCompleteTo">민서</strong>에게<br/>마음을 보냈어요!</div>
+<button aria-label="YOU 너에게" class="completion-hotspot completion-back" id="youCompleteBack" type="button"></button>
+<button aria-label="알림" class="completion-hotspot completion-bell" id="youCompleteBell" type="button"></button>
+<button aria-label="마음 목록으로" class="completion-hotspot completion-list" id="youCompleteList" type="button"></button>
+<button aria-label="나" class="completion-hotspot completion-nav-one" data-goto="home" type="button"></button>
+<button aria-label="온디" class="completion-hotspot completion-nav-two" data-goto="bamboo" type="button"></button>
+<button aria-label="YOU 너에게" class="completion-hotspot completion-nav-three" id="youCompleteYou" type="button"></button>
+<button aria-label="WE 우리" class="completion-hotspot completion-nav-four" data-open-we="1" type="button"></button>
+</main>
+</section>
+<section aria-label="받은 마음 상세" class="screen you-received-detail-screen" hidden="" id="youReceivedDetailScreen">
+<div class="status"><span>9:41</span><span aria-hidden="true" class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="header you-received-header">
+<button aria-label="받은 마음 목록으로 돌아가기" class="back-button" id="youReceivedBack" type="button">‹</button>
+<span class="header-label">받은 마음 상세</span>
+<div class="small-brand official-brand"><img alt="사이ON" src="assets/saion-official-logo.png"/></div>
+<button aria-label="알림" class="icon-button" id="youReceivedBell" type="button">♧</button>
+</header>
+<main class="you-received-main" id="youReceivedScroller">
+<section class="you-received-hero">
+<div class="you-received-emotion"><img alt="행복해요 감정등" id="youReceivedLamp" src="assets/emotion-lamps/lamp_01.png"/></div>
+<div class="you-received-hero-copy"><h1 id="youReceivedTitle">민서에게서 온 마음</h1><time id="youReceivedTime">11월 18일(수) 10:24</time><span class="you-received-mood" id="youReceivedMood">행복해요 ♡</span></div>
+<img alt="하트를 안은 온디" class="you-received-ondi" src="assets/record-ondi.png"/>
+</section>
+<article class="you-received-paper" id="youReceivedPaper">
+<p class="you-received-message" id="youReceivedMessage"></p>
+<img alt="마음카드 배경 그림" class="you-received-art" id="youReceivedArt" src="assets/you-received-pink-tulips.png"/>
+</article>
+<section aria-label="받은 음성" class="you-received-audio-box" id="youReceivedAudioBox">
+<button aria-label="음성 재생" class="you-received-play" id="youReceivedAudioPlay" type="button">▶</button>
+<span aria-hidden="true" class="you-received-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+<span class="you-received-length" id="youReceivedAudioLength">00:18</span>
+<p class="you-received-audio-note" id="youReceivedAudioNote">샘플 음성 · 시연용 읽어주기</p>
+</section>
+<div class="you-received-actions">
+<button class="you-received-save" id="youReceivedSave" type="button">♡ 마음 담기</button>
+<button class="you-received-reply" id="youReceivedReply" type="button">➤ 답장하기</button>
+</div>
+</main>
+<nav aria-label="하단 메뉴" class="bottom-nav">
+<button data-goto="home" type="button"><img alt="나" class="nav-image" src="assets/navigation/nav_me.png"/></button>
+<button data-goto="bamboo" type="button"><img alt="온디" class="nav-image" src="assets/navigation/nav_ondi.png"/></button>
+<button class="active" id="youReceivedNavYou" type="button"><img alt="YOU 너에게" class="nav-image" src="assets/navigation/nav_you.png"/></button>
+<button data-open-we="1" type="button"><img alt="WE 우리" class="nav-image" src="assets/navigation/nav_we.png"/></button>
+</nav>
+</section>
+<section aria-label="WE 우리 · 우리의 이야기" class="screen we-screen" hidden="" id="weScreen">
+<div class="we-scroll" id="weScroller">
+<div aria-hidden="true" class="we-status status"><span>9:41</span><span class="system-icons">▮▮▮ ◕ ▰</span></div>
+<header class="we-head">
+<img alt="사이ON" class="we-logo" src="assets/saion-official-logo.png"/>
+<button aria-label="알림" class="we-bell" id="weBell" type="button"><svg fill="none" height="24" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 9h18c0-1-3-2-3-9M10 21h4"></path></svg></button>
+</header>
+<section aria-label="우리의 이야기 소개" class="we-hero">
+<div class="we-hero-copy"><h1>우리의 이야기</h1><p>함께 나눈 마음을 모아봐요</p></div>
+<img alt="조명 아래 하트를 안고 있는 온디" class="we-hero-art" src="assets/we/hero.webp">
+</img></section>
+<div class="we-tools">
+<label class="we-search"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input aria-label="이야기 검색" autocomplete="off" id="weSearch" placeholder="사람, 이야기, 날짜로 찾기" type="search"/></label>
+<div aria-label="감정등으로 이야기 필터링" class="we-moods" role="group">
+<button aria-pressed="false" class="we-mood" data-we-mood="행복해요" type="button"><img alt="" src="assets/emotion-lamps/lamp_01.png"/><span>행복해요</span></button>
+<button aria-pressed="false" class="we-mood" data-we-mood="무난해요" type="button"><img alt="" src="assets/emotion-lamps/lamp_02.png"/><span>무난해요</span></button>
+<button aria-pressed="false" class="we-mood" data-we-mood="활기차요" type="button"><img alt="" src="assets/emotion-lamps/lamp_03.png"/><span>활기차요</span></button>
+<button aria-pressed="false" class="we-mood" data-we-mood="화가나요" type="button"><img alt="" src="assets/emotion-lamps/lamp_04.png"/><span>화가나요</span></button>
+<button aria-pressed="false" class="we-mood" data-we-mood="우울해요" type="button"><img alt="" src="assets/emotion-lamps/lamp_05.png"/><span>우울해요</span></button>
+<button aria-pressed="false" class="we-mood" data-we-mood="지쳐요" type="button"><img alt="" src="assets/emotion-lamps/lamp_06.png"/><span>지쳐요</span></button>
+</div>
+<div class="we-filter-wrap">
+<button aria-controls="weFilterPanel" aria-expanded="false" class="we-filter-toggle" id="weFilterToggle" type="button"><span>☷   기록 필터</span><span class="we-filter-label" id="weFilterLabel">전체</span><span aria-hidden="true" class="we-chevron">⌄</span></button>
+<div class="we-filter-panel" hidden="" id="weFilterPanel">
+<label>기록 유형<select id="weTypeFilter"><option value="all">전체</option><option value="text">글</option><option value="photo">사진</option><option value="voice">음성</option></select></label>
+<label>기록 기간<select id="weMonthFilter"><option value="all">전체 기간</option><option value="2026-11">2026년 11월</option></select></label>
+<button id="weFilterReset" type="button">필터 초기화</button>
+</div>
+</div>
+</div>
+<div aria-live="polite" class="we-feed" id="weFeedList"></div>
+<button class="we-bundle-btn" id="weCreateBundle" type="button">＋ 기억 묶음 만들기</button>
+<p class="we-privacy">연결된 사람들끼리 공유한 기록만 표시돼요. 나의 개인 감정 기록과 온디 대화는 포함되지 않아요.</p>
+</div>
+</section>
+<div aria-labelledby="weDetailTitle" aria-modal="true" class="we-dialog" hidden="" id="weDetailDialog" role="dialog">
+<div class="we-dialog-card"><button aria-label="닫기" class="we-dialog-close" id="weDetailClose" type="button">×</button>
+<div id="weDetailBody"></div></div>
+</div>
+<nav aria-label="공통 하단 메뉴" class="saion-global-nav" hidden="" id="saionGlobalNav">
+<button aria-label="나" data-saion-tab="home" type="button"><img alt="나" src="assets/navigation/nav_me.png"/></button>
+<button aria-label="온디" data-saion-tab="bamboo" type="button"><img alt="온디" src="assets/navigation/nav_ondi.png"/></button>
+<button aria-label="YOU 너에게" data-saion-tab="youInbox" type="button"><img alt="YOU 너에게" src="assets/navigation/nav_you.png"/></button>
+<button aria-label="WE 우리" data-saion-tab="we" type="button"><img alt="WE 우리" src="assets/navigation/nav_we.png"/></button>
+</nav></div>
+<div aria-label="보낸 마음 카드 상세" aria-modal="true" class="you-detail-backdrop" hidden="" id="youSentDetailDialog" role="dialog">
+<section class="you-detail-dialog">
+<button aria-label="닫기" class="you-detail-close" id="youSentDetailClose" type="button">×</button>
+<h2 id="youSentDetailTo"></h2>
+<article class="you-postcard bg-tulip" id="youSentDetailArt"><div class="card-paper"><p class="card-message" id="youSentDetailMessage"></p></div></article>
+<audio controls="" hidden="" id="youSentDetailAudio"></audio>
+</section>
+</div>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
